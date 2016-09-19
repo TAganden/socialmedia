@@ -1,0 +1,20 @@
+.login {
+    background-color : #3B5998;
+    width : 350px;
+    padding-bottom: 25px;
+    border-radius: 25px;
+    text-align : center;
+    color : white;
+}
+
+.login h1 {
+    color : white;
+}
+
+
+.login a {
+    color : white;
+}
+
+
+

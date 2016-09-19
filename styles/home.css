@@ -1,0 +1,30 @@
+body {
+    margin-top: 25px;
+    background-color : lightgray;
+}
+
+.navbar-custom {
+    background-color : #3B5998;
+    border-color : black;
+}
+
+.stuff {
+    background-image: url("http://www.mobygames.com/images/covers/l/339807-overwatch-windows-front-cover.jpg");
+    background-color: #cccccc;
+
+}
+
+h5 {
+    visibility: hidden;
+}
+
+.btn-custom {
+    margin-top : 200px;
+    height : 40px;
+}
+
+#pro-pic {
+    margin-top : 25px;
+    background-color: white;
+}
+

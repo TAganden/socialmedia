@@ -1,7 +1,9 @@
-.login {
-    background-color: lightblue;
+form {
+    background-color : #3B5998;
     width : 350px;
     padding-bottom: 25px;
     border-radius: 25px;
     text-align : center;
+    color : white;
 }
+
