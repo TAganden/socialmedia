@@ -25,6 +25,23 @@ h5 {
 
 #pro-pic {
     margin-top : 25px;
-    background-color: white;
 }
 
+
+.profile-stats {
+    background-color : white;
+}
+
+#yo {
+    color : white;
+    margin-top : 100px;
+}
+
+#corner-pic {
+    margin-top : 5px;
+}
+
+#call-sign {
+    color : white;
+    margin-top : 27px;
+}

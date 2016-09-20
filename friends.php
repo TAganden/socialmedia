@@ -43,8 +43,6 @@ if (mysqli_num_rows($result) > 0) {
     echo "0 results";
 }
 
-mysqli_close($conn);
-
     
 ?>
 
@@ -61,7 +59,7 @@ mysqli_close($conn);
       <div class="form-group">
         <input type="text" id="search-bar" class="form-control" placeholder="Search">
       </div>
-      <button type="submit" class="btn btn-default" id="magnifying-glass"><span class="glyphicon glyphicon-search"></span></button>
+      <button type="submit" class="btn btn-default" id="magnifying-glass"><span class="glyphicon glyphicon-search"></spa</button>
   </form>
   </div>
    
@@ -98,31 +96,86 @@ mysqli_close($conn);
     </div>
     
     
-   
-</body>
-
       <div class="row">
         <div class="col-md-1"></div>
-        <div class="col-md-10 profile-stats">
-          <?php 
-            echo "<h2>Call Sign : $call_sign</h2>";
-            echo "<h2>Real Name : $name</h2>";
-            echo "<h2>Age : $age</h2>";
-            echo "<h2>Height : $height</h2>";
-            echo "<h2>Affiliation : $affliation</h2>";
-            echo "<h2>Occupation : $occupation</h2>";
-            echo "<h2>Base Of Operations : $boo</h2>";
-          ?>
+        <div class="col-md-5 profile-stats">
+              <h1 class="text-center">Roadhog</h1>
+              <img class="center-block" src="https://hydra-media.cursecdn.com/overwatch.gamepedia.com/thumb/c/ce/Roadhog-Portrait.png/345px-Roadhog-Portrait.png?version=8d4d4fd66925b98e23e233c56afd53cc" width="300" height="300"</img>
+              
           </div>
-        </div> 
+               <div class="col-md-5 profile-stats">
+              <h1 class="text-center">Junkrat</h1>
+              <img class="center-block" src="https://www.furiouspaul.com/overwatch/images/junkrat/junkrat.png" width="300" height="300"</img>
+              
+          </div>
         <div class="col-md-1"><h5>.</h5></div>
+        
     </div>
+    
+    
+       <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-5 profile-stats">
+              <h1 class="text-center">Soldier: 76</h1>
+              <img class="center-block" src="https://pbs.twimg.com/profile_images/738926120825819136/9AfJbr-9.jpg" width="300" height="300"</img>
+              
+          </div>
+               <div class="col-md-5 profile-stats">
+              <h1 class="text-center">Widowmaker</h1>
+              <img class="center-block" src="http://www.intunedonline.net/wp-content/uploads/2016/04/widowmaker-overwatch-sniper.jpg" width="300" height="300"</img>
+              
+          </div>
+        <div class="col-md-1"><h5>.</h5></div>
 
 
-  <?php
-    echo "Want to log out?";
-    echo "<a href='index.html'><button type='button' class='btn btn-secondary'>Logout</button></a>";
-  ?>
+    </div>
+    
+  <?php 
+    $sql = "SELECT friends FROM users WHERE cs='$call_sign'";
+    $result = mysqli_query($conn, $sql);
+    $array = array();
+    if (mysqli_num_rows($result) > 0) {
+    // output data of each row
+    while($row = mysqli_fetch_assoc($result)) {
+         $friends_list = $row["friends"];
+    }
+
+} else {
+    echo "You have 0 friends";
+}
+
+
+mysqli_close($conn);
+
+function parseFriendsList($friends_list){
+  $pieces = explode(" ", $friends_list);
+  $arr_friends_list = [];
+  foreach ($pieces as &$value) {
+    if ($value == "Soldier:"){
+      array_push($arr_friends_list, $value . " 76");
+      continue;
+    }
+    elseif ($value == "76") {
+      continue;
+    }
+    array_push($arr_friends_list, $value);
+}
+
+foreach ($arr_friends_list as &$blah) {
+   echo $blah . "<br/>";
+}
+}
+
+parseFriendsList($friends_list);
+
+
+
+
+
+    
+?>
+
+</body>
 
 
 </html>
