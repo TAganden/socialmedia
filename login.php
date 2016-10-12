@@ -1,7 +1,7 @@
 <html><body>
 <?php
 
-
+session_start();
 $username = $_GET['cs'];
 $password = $_GET['password'];
 
@@ -15,17 +15,20 @@ if (mysqli_connect_errno())
   }
   
   
-$qz = "SELECT id FROM users where cs='".$username."' and password='".$password."'" ;
+$qz = "SELECT id, pro_pic FROM users where cs='".$username."' and password='".$password."'" ;
 $qz = str_replace("\'","",$qz);
 $result = mysqli_query($con,$qz);
 
 
 while($row = mysqli_fetch_array($result))
   {
-  session_start();
+
   $_SESSION['cs'] = $username;
+  $_SESSION['id'] = $row['id'];
+  $_SESSION['pro_pic'] = $row['pro_pic'];
   header("Location: home.php");
   }
+
     mysqli_close($con);
 ?>
 
