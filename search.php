@@ -1,5 +1,8 @@
 <?php
+    session_start();
+    
     $search_cs = $_POST['search'];
+    $_SESSION['search_cs'] = $search_cs;
     $con = mysqli_connect("localhost","dcaligiuri","","social");
 
 if (mysqli_connect_errno())
@@ -23,6 +26,7 @@ while($row = mysqli_fetch_array($result))
     $occupation = $row["occupation"];
     $boo = $row["boo"]; 
     $affliation = $row["affliation"];
+    $_SESSION['search_pro_pic'] = $pro_pic;
   }
 
   
@@ -57,9 +61,9 @@ mysqli_close($con);
         <div class="col-md-10 stuff">
               <img class="pull-left" id="pro-pic" src="<?php echo $pro_pic; ?>" width="200" height="200"</img>
               <h1 id="call-sign" class="pull-left"><?php echo $call_sign; ?></h1>
-              <a href="home.php"><button type="button" class="btn btn-secondary btn-custom">About</button></a>
-              <a href="friends.php"><button type="button" class="btn btn-secondary btn-custom">Friends</button></a>
-              <a href="photos.php"><button type="button" class="btn btn-secondary btn-custom">Photos</button></a>
+              <a href="search.php"><button type="button" class="btn btn-secondary btn-custom">About</button></a>
+              <a href="searchFriends.php"><button type="button" class="btn btn-secondary btn-custom">Friends</button></a>
+              <a href="searchPhotos.php"><button type="button" class="btn btn-secondary btn-custom">Photos</button></a>
         </div> 
         <div class="col-md-1"><h5>.</h5></div>
     </div>
